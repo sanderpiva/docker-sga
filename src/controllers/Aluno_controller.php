@@ -1,5 +1,5 @@
 <?php
-//teste3
+
 
 require_once __DIR__ . '/../models/Aluno_model.php'; // Adicione esta linha!
 require_once __DIR__ . '/../models/DinamicActions_model.php'; // Adicione esta linha!
