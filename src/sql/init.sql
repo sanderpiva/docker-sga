@@ -1,6 +1,77 @@
 CREATE DATABASE IF NOT EXISTS `gerenciamento_academico_completo` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `gerenciamento_academico_completo`;
 
+CREATE TABLE IF NOT EXISTS `turma` (
+  `id_turma` int(11) NOT NULL AUTO_INCREMENT,
+  `codigoTurma` varchar(45) NOT NULL,
+  `nomeTurma` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_turma`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+INSERT INTO `turma` (`id_turma`, `codigoTurma`, `nomeTurma`) VALUES
+	(1, '6S_A', '6 serie A'),
+	(2, '6S_B', '6 serie B'),
+	(9, '8S_C', '8 serie C'),
+	(13, '6S_F', '6 serie F'),
+	(15, '6S_Za', '6 serie Za'),
+	(16, '6S_G', '6 serie G');
+
+CREATE TABLE IF NOT EXISTS `professor` (
+  `id_professor` int(11) NOT NULL AUTO_INCREMENT,
+  `registroProfessor` varchar(100) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `endereco` varchar(100) NOT NULL,
+  `telefone` varchar(45) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_professor`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+
+INSERT INTO `professor` (`id_professor`, `registroProfessor`, `nome`, `email`, `endereco`, `telefone`, `senha`) VALUES
+	(16, 'mat123mjjss', 'Rita Moses', 'rita@gmail.com', 'Rua 3300', '(35) 3295-1099', '$2y$10$h7Aj2I2FrGzbp4TGy5a1feYwZtwZOE100jjNirsQernRMqannT0c2'),
+	(23, 'Port15ase3', 'Jose Dias dos Santos', 'jose@gmail.com', 'Rua das Neves 333', '(35) 3333-9999', '$2y$10$plPZH7s5xYjmzAuHwFWo..Jto2Pn9ISrFzsrRKoq/53z.ZQanxPZq'),
+	(24, 'HIST123', 'João História', 'joao@gmail.com', 'Rua das 78 Centro Machado MG', '(35) 3295-7433', '$2y$10$bXMc9rzoAEnNYidrviWjLubjnb8zrPh5aUZfXMJZOAnp8lNK6XfKS'),
+	(25, 'Geo789', 'Hilda Carla', 'hilda@gmail.com', 'Rua das 8 Centro Machado MG', '(35) 3295-7447', '$2y$10$WDbWlO1yBjvTu0AHl8H8m.6d1Tu80A.9LrpBrbD6D72Ffb5nS3BkW'),
+	(26, 'IR456a', 'Lia Silva Rocha', 'lia@gmail.com', 'Rua das 89 Centro Machado MG', '(35) 3295-7447', '$2y$10$ydousNBi9PFx5ZCc8NopgeUJ5PXtg7Ow8vWrq//2u5G5Ky8pCVwZm'),
+	(27, 'EA1234', 'Maria Rita Silas', 'maria@gmail.com', 'Rua das 18 Centro Machado MG', '(35) 3295-7400', '$2y$10$91fD5A7m/AZrFcHYXqQ/3u6hBxmqrwPxlHetwaupp5PJMgnWG6Sny'),
+	(30, 'Mat7123A', 'Lia dos Santos Sá', 'liasa@gmail.com', 'Rua das Neves 330', '(35) 3295-1880', '$2y$10$dN.qWU0K1XnTdeA2FIVPNeq7bdqVArH/YoM5LOjfPCskps8uxZwJm'),
+	(31, 'Mat789Q', 'Emilia Sanches Rocha', 'emilia@gmail.com', 'Rua das 819 Centro Machado MG', '(35) 3295-7410', '$2y$10$e8wmIUZQWmJuxz9kzJaAneNH/U0Q5Bi2n/gyL4dOUZexT64e/uR7y'),
+	(32, 'HIS7899', 'Joana Silva', 'joana@gmail.com', 'Rua das 818 Centro Machado MG', '(35) 3295-7410', '$2y$10$BYF62.3rAldi2btUxkxT6OvLP/ysheZMTOHeHu6hnGruKOrtibtgK'),
+	(33, 'Geo1asS', 'Silvana Rocha', 'silvana@gmail.com', 'Rua das 28 Centro Machado MG', '(35) 3295-7470', '$2y$10$1rpLSmM6MQ0jQblXGQqVxuKGNiPj0tAerF2vQGNbGlT0ZnFSus0P6'),
+	(34, 'Mat123Abcc', 'Luis Slias', 'luissilas@gmail.com', 'Rua das Neves 333', '(35) 3295-1010', '$2y$10$4tM3FP3afSYWwSQXvdKsxOb6T/J/d/xhx7KJ8LcOhGiTOJ7RRuSsC'),
+	(35, 'Mata234', 'Lia Silas Moreira', 'liasilas@gmail.com', 'Rua das Neves 3332', '(35) 3295-1044', '$2y$10$k1uaWGQrr2bf83.ljppBGuceyVuYAXF8XpK6YjwRGP6XOOskZdcg2'),
+	(37, 'Fis154sss', 'Fuvio Maia', 'fuvio@gmail.com', 'Rua das 80 Centro Machado MG', '(35) 3295-7400', '$2y$10$.XCjnR2VKTvfTK3c0FnNN.tjTQnk9MSav34WJwgWEkZ/YwgD6ACg.'),
+	(41, 'Mzx12jk8', 'Lo Santos Santos', 'los@gmail.com', 'Rua das Neves 3332', '(35) 3295-1888', '$2y$10$H901DX9iBror2CoF4O729.IsV36o4byzRB8zojQofOCZw92qoREm.'),
+	(42, 'Mzx12ddd', 'Lucas Seixas', 'lucaseixas@gmail.com', 'Rua 3378', '(35) 3295-1888', '$2y$10$R2HgYDEdz2Gayxt61nbI2uiJSj1O91DrOZXb6MZC/C5S3PSkOmvo6');
+
+CREATE TABLE IF NOT EXISTS `disciplina` (
+  `id_disciplina` int(11) NOT NULL AUTO_INCREMENT,
+  `codigoDisciplina` varchar(100) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `carga_horaria` varchar(700) NOT NULL,
+  `professor` varchar(100) NOT NULL,
+  `descricao` varchar(700) NOT NULL,
+  `semestre_periodo` varchar(150) NOT NULL,
+  `Professor_id_professor` int(11) NOT NULL,
+  `Turma_id_turma` int(11) NOT NULL,
+  PRIMARY KEY (`id_disciplina`,`Professor_id_professor`),
+  KEY `fk_Disciplina_Professor1_idx` (`Professor_id_professor`),
+  KEY `fk_Turma1_idx` (`Turma_id_turma`),
+  CONSTRAINT `fk_Disciplina_Professor1` FOREIGN KEY (`Professor_id_professor`) REFERENCES `professor` (`id_professor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Turma1` FOREIGN KEY (`Turma_id_turma`) REFERENCES `turma` (`id_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+INSERT INTO `disciplina` (`id_disciplina`, `codigoDisciplina`, `nome`, `carga_horaria`, `professor`, `descricao`, `semestre_periodo`, `Professor_id_professor`, `Turma_id_turma`) VALUES
+	(5, 'Mat', 'Matematica', '65', 'Rita Moses', 'A matematica do ensino basico preocupa-se em ensinar A, B e C', '8S_C', 16, 9),
+	(6, 'Port234', 'Portugues', '65', 'Jose Dias dos Santos', 'A lingua portugues eh uma das materias que envolve o poder de analisar e descrever contextos, bem como estudar sua sixtaxe e semantica', '6S_A', 23, 1),
+	(7, 'hit12334', 'Historia', '60', 'Joao Historia', 'A Historia eh a ciencia que estuda o passado das civilizações e tal', '6S_B', 24, 2),
+	(8, 'ea123A', 'Inglês', '60', 'Maria Rita Silas', 'A lingua inglesa eh fala em varios paises do mundo e seu conhecimento abrange inumeras metodologias', '6S_B', 27, 2),
+	(9, 'Filo1234', 'Filosofia', '60', 'Lia Silva Rocha', 'A filosofia é a ciencia que estuda todas as ciencias, ela é a mãe de todas, requer analise economica e politica', '6S_B', 26, 2),
+	(10, 'GEOgraFia12A', 'GeografiaS', '60', 'Silvana Rocha', 'A Geografia é uma ciencia que estuda diversos casos, entre eles a politica e economia dos paises', '6S_A', 33, 1),
+	(11, 'geo12aq', 'Geografia', '50', 'Hilda Carla', 'A Geografisssssa é uma ciencia que estuda diversos casos, entre eles a politica e economia dos paises', '8S_C', 25, 9);
+
+
+
 CREATE TABLE IF NOT EXISTS `aluno` (
   `id_aluno` int(11) NOT NULL AUTO_INCREMENT,
   `matricula` varchar(100) NOT NULL,
@@ -17,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   KEY `fk_Aluno_Turma1_idx` (`Turma_id_turma`),
   CONSTRAINT `fk_Aluno_Turma1` FOREIGN KEY (`Turma_id_turma`) REFERENCES `turma` (`id_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
 
 INSERT INTO `aluno` (`id_aluno`, `matricula`, `nome`, `cpf`, `email`, `data_nascimento`, `endereco`, `cidade`, `telefone`, `Turma_id_turma`, `senha`) VALUES
 	(12, 'IRas7890', 'Monica Alves Correias', '88810011129', 'monica@gmail.com', '2016-02-24', 'Rua das Neves 70', 'Machado', '(35) 3295-7833', 1, '$2y$10$ZpCvbiXaJDOBjME8quQuvuNVQVRPYDrVK3ohYw1u8MBi9gKQI2NTq'),
@@ -50,85 +122,6 @@ INSERT INTO `conteudo` (`id_conteudo`, `codigoConteudo`, `titulo`, `descricao`, 
 	(13, 'matA5687', 'A progressao aritmetica', 'Uma Progressão Aritmética (PA) é uma sequência numérica em que cada termo, a partir do segundo, é obtido somando uma constante chamada razão ao termo anterior\r\nPor exemplo, a sequência 2, 5, 8, 11... é uma PA com razão 3. As PAs são úteis para modelar situações em que há um crescimento ou decrescimento linear.\r\n        ', '2025-05-20', 'Rita Moses', 'Matematica', 'multipla-escolha', 5),
 	(14, 'matza345', 'A equação do primeiro grau2', 'A equação do primeiro grau é um dos assuntos mais pertinentes da matemática pois esyuda casos do cotidiano', '2025-05-01', 'Rita Moses', 'Matematica', 'Aula 5', 5);
 
-CREATE TABLE IF NOT EXISTS `disciplina` (
-  `id_disciplina` int(11) NOT NULL AUTO_INCREMENT,
-  `codigoDisciplina` varchar(100) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `carga_horaria` varchar(700) NOT NULL,
-  `professor` varchar(100) NOT NULL,
-  `descricao` varchar(700) NOT NULL,
-  `semestre_periodo` varchar(150) NOT NULL,
-  `Professor_id_professor` int(11) NOT NULL,
-  `Turma_id_turma` int(11) NOT NULL,
-  PRIMARY KEY (`id_disciplina`,`Professor_id_professor`),
-  KEY `fk_Disciplina_Professor1_idx` (`Professor_id_professor`),
-  KEY `fk_Turma1_idx` (`Turma_id_turma`),
-  CONSTRAINT `fk_Disciplina_Professor1` FOREIGN KEY (`Professor_id_professor`) REFERENCES `professor` (`id_professor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Turma1` FOREIGN KEY (`Turma_id_turma`) REFERENCES `turma` (`id_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
-
-INSERT INTO `disciplina` (`id_disciplina`, `codigoDisciplina`, `nome`, `carga_horaria`, `professor`, `descricao`, `semestre_periodo`, `Professor_id_professor`, `Turma_id_turma`) VALUES
-	(5, 'Mat', 'Matematica', '65', 'Rita Moses', 'A matematica do ensino basico preocupa-se em ensinar A, B e C', '8S_C', 16, 9),
-	(6, 'Port234', 'Portugues', '65', 'Jose Dias dos Santos', 'A lingua portugues eh uma das materias que envolve o poder de analisar e descrever contextos, bem como estudar sua sixtaxe e semantica', '6S_A', 23, 1),
-	(7, 'hit12334', 'Historia', '60', 'Joao Historia', 'A Historia eh a ciencia que estuda o passado das civilizações e tal', '6S_B', 24, 2),
-	(8, 'ea123A', 'Inglês', '60', 'Maria Rita Silas', 'A lingua inglesa eh fala em varios paises do mundo e seu conhecimento abrange inumeras metodologias', '6S_B', 27, 2),
-	(9, 'Filo1234', 'Filosofia', '60', 'Lia Silva Rocha', 'A filosofia é a ciencia que estuda todas as ciencias, ela é a mãe de todas, requer analise economica e politica', '6S_B', 26, 2),
-	(10, 'GEOgraFia12A', 'GeografiaS', '60', 'Silvana Rocha', 'A Geografia é uma ciencia que estuda diversos casos, entre eles a politica e economia dos paises', '6S_A', 33, 1),
-	(11, 'geo12aq', 'Geografia', '50', 'Hilda Carla', 'A Geografisssssa é uma ciencia que estuda diversos casos, entre eles a politica e economia dos paises', '8S_C', 25, 9);
-
-CREATE TABLE IF NOT EXISTS `matricula` (
-  `Aluno_id_aluno` int(11) NOT NULL,
-  `Disciplina_id_disciplina` int(11) NOT NULL,
-  PRIMARY KEY (`Aluno_id_aluno`,`Disciplina_id_disciplina`),
-  KEY `fk_Aluno_has_Disciplina_Disciplina1_idx` (`Disciplina_id_disciplina`),
-  KEY `fk_Aluno_has_Disciplina_Aluno_idx` (`Aluno_id_aluno`),
-  CONSTRAINT `fk_Aluno_has_Disciplina_Aluno` FOREIGN KEY (`Aluno_id_aluno`) REFERENCES `aluno` (`id_aluno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Aluno_has_Disciplina_Disciplina1` FOREIGN KEY (`Disciplina_id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `matricula` (`Aluno_id_aluno`, `Disciplina_id_disciplina`) VALUES
-	(12, 5),
-	(13, 5),
-	(17, 5),
-	(12, 6),
-	(13, 6),
-	(17, 6),
-	(16, 7),
-	(19, 7),
-	(12, 8),
-	(19, 8),
-	(16, 9),
-	(13, 10),
-	(16, 10),
-	(18, 11);
-
-CREATE TABLE IF NOT EXISTS `professor` (
-  `id_professor` int(11) NOT NULL AUTO_INCREMENT,
-  `registroProfessor` varchar(100) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `endereco` varchar(100) NOT NULL,
-  `telefone` varchar(45) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_professor`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
-
-INSERT INTO `professor` (`id_professor`, `registroProfessor`, `nome`, `email`, `endereco`, `telefone`, `senha`) VALUES
-	(16, 'mat123mjjss', 'Rita Moses', 'rita@gmail.com', 'Rua 3300', '(35) 3295-1099', '$2y$10$h7Aj2I2FrGzbp4TGy5a1feYwZtwZOE100jjNirsQernRMqannT0c2'),
-	(23, 'Port15ase3', 'Jose Dias dos Santos', 'jose@gmail.com', 'Rua das Neves 333', '(35) 3333-9999', '$2y$10$plPZH7s5xYjmzAuHwFWo..Jto2Pn9ISrFzsrRKoq/53z.ZQanxPZq'),
-	(24, 'HIST123', 'João História', 'joao@gmail.com', 'Rua das 78 Centro Machado MG', '(35) 3295-7433', '$2y$10$bXMc9rzoAEnNYidrviWjLubjnb8zrPh5aUZfXMJZOAnp8lNK6XfKS'),
-	(25, 'Geo789', 'Hilda Carla', 'hilda@gmail.com', 'Rua das 8 Centro Machado MG', '(35) 3295-7447', '$2y$10$WDbWlO1yBjvTu0AHl8H8m.6d1Tu80A.9LrpBrbD6D72Ffb5nS3BkW'),
-	(26, 'IR456a', 'Lia Silva Rocha', 'lia@gmail.com', 'Rua das 89 Centro Machado MG', '(35) 3295-7447', '$2y$10$ydousNBi9PFx5ZCc8NopgeUJ5PXtg7Ow8vWrq//2u5G5Ky8pCVwZm'),
-	(27, 'EA1234', 'Maria Rita Silas', 'maria@gmail.com', 'Rua das 18 Centro Machado MG', '(35) 3295-7400', '$2y$10$91fD5A7m/AZrFcHYXqQ/3u6hBxmqrwPxlHetwaupp5PJMgnWG6Sny'),
-	(30, 'Mat7123A', 'Lia dos Santos Sá', 'liasa@gmail.com', 'Rua das Neves 330', '(35) 3295-1880', '$2y$10$dN.qWU0K1XnTdeA2FIVPNeq7bdqVArH/YoM5LOjfPCskps8uxZwJm'),
-	(31, 'Mat789Q', 'Emilia Sanches Rocha', 'emilia@gmail.com', 'Rua das 819 Centro Machado MG', '(35) 3295-7410', '$2y$10$e8wmIUZQWmJuxz9kzJaAneNH/U0Q5Bi2n/gyL4dOUZexT64e/uR7y'),
-	(32, 'HIS7899', 'Joana Silva', 'joana@gmail.com', 'Rua das 818 Centro Machado MG', '(35) 3295-7410', '$2y$10$BYF62.3rAldi2btUxkxT6OvLP/ysheZMTOHeHu6hnGruKOrtibtgK'),
-	(33, 'Geo1asS', 'Silvana Rocha', 'silvana@gmail.com', 'Rua das 28 Centro Machado MG', '(35) 3295-7470', '$2y$10$1rpLSmM6MQ0jQblXGQqVxuKGNiPj0tAerF2vQGNbGlT0ZnFSus0P6'),
-	(34, 'Mat123Abcc', 'Luis Slias', 'luissilas@gmail.com', 'Rua das Neves 333', '(35) 3295-1010', '$2y$10$4tM3FP3afSYWwSQXvdKsxOb6T/J/d/xhx7KJ8LcOhGiTOJ7RRuSsC'),
-	(35, 'Mata234', 'Lia Silas Moreira', 'liasilas@gmail.com', 'Rua das Neves 3332', '(35) 3295-1044', '$2y$10$k1uaWGQrr2bf83.ljppBGuceyVuYAXF8XpK6YjwRGP6XOOskZdcg2'),
-	(37, 'Fis154sss', 'Fuvio Maia', 'fuvio@gmail.com', 'Rua das 80 Centro Machado MG', '(35) 3295-7400', '$2y$10$.XCjnR2VKTvfTK3c0FnNN.tjTQnk9MSav34WJwgWEkZ/YwgD6ACg.'),
-	(41, 'Mzx12jk8', 'Lo Santos Santos', 'los@gmail.com', 'Rua das Neves 3332', '(35) 3295-1888', '$2y$10$H901DX9iBror2CoF4O729.IsV36o4byzRB8zojQofOCZw92qoREm.'),
-	(42, 'Mzx12ddd', 'Lucas Seixas', 'lucaseixas@gmail.com', 'Rua 3378', '(35) 3295-1888', '$2y$10$R2HgYDEdz2Gayxt61nbI2uiJSj1O91DrOZXb6MZC/C5S3PSkOmvo6');
 
 CREATE TABLE IF NOT EXISTS `prova` (
   `id_prova` int(11) NOT NULL AUTO_INCREMENT,
@@ -196,6 +189,33 @@ INSERT INTO `respostas` (`id_respostas`, `codigoRespostas`, `respostaDada`, `ace
 	(31, 'rgeoq123', 'a', '1', 1, 17, 11, 10, 33, 13),
 	(34, 'rq1cvg', 'a', '1', 1, 16, 9, 7, 24, 17);
 
+
+CREATE TABLE IF NOT EXISTS `matricula` (
+  `Aluno_id_aluno` int(11) NOT NULL,
+  `Disciplina_id_disciplina` int(11) NOT NULL,
+  PRIMARY KEY (`Aluno_id_aluno`,`Disciplina_id_disciplina`),
+  KEY `fk_Aluno_has_Disciplina_Disciplina1_idx` (`Disciplina_id_disciplina`),
+  KEY `fk_Aluno_has_Disciplina_Aluno_idx` (`Aluno_id_aluno`),
+  CONSTRAINT `fk_Aluno_has_Disciplina_Aluno` FOREIGN KEY (`Aluno_id_aluno`) REFERENCES `aluno` (`id_aluno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Aluno_has_Disciplina_Disciplina1` FOREIGN KEY (`Disciplina_id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `matricula` (`Aluno_id_aluno`, `Disciplina_id_disciplina`) VALUES
+	(12, 5),
+	(13, 5),
+	(17, 5),
+	(12, 6),
+	(13, 6),
+	(17, 6),
+	(16, 7),
+	(19, 7),
+	(12, 8),
+	(19, 8),
+	(16, 9),
+	(13, 10),
+	(16, 10),
+	(18, 11);
+
 CREATE TABLE IF NOT EXISTS `tabeladados` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
@@ -214,18 +234,4 @@ INSERT INTO `tabeladados` (`id`, `nome`, `email`, `q1`, `q2`, `q3`, `q4`, `nota`
 	(2, 'Janaina Rita Reis', 'janaina@gmail.com', 'b', 'b', 'c', 'd', 7.5, '6 serie B'),
 	(3, 'Tales Moreira Rocha', 'tales@gmail.com', 'a', 'd', 'd', 'a', 2.5, '8 serie C');
 
-CREATE TABLE IF NOT EXISTS `turma` (
-  `id_turma` int(11) NOT NULL AUTO_INCREMENT,
-  `codigoTurma` varchar(45) NOT NULL,
-  `nomeTurma` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_turma`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
-
-INSERT INTO `turma` (`id_turma`, `codigoTurma`, `nomeTurma`) VALUES
-	(1, '6S_A', '6 serie A'),
-	(2, '6S_B', '6 serie B'),
-	(9, '8S_C', '8 serie C'),
-	(13, '6S_F', '6 serie F'),
-	(15, '6S_Za', '6 serie Za'),
-	(16, '6S_G', '6 serie G');
 
