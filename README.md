@@ -1,1 +1,1 @@
-<h1>Docker SGA: Problema resolvido!</h1>
+<h1>Docker SGA</h1>
