@@ -1,7 +1,7 @@
 <html>
   <body>
     <h1>Docker SGA</h1>
-    <p>Sistema de Gerenciamento Academico no formato MVC dentro de um container</p>
+    <p>Sistema de Gerenciamento Academico no formato MVC dentro de um container (Docker)</p>
     <h2>Credenciais para acesso:</h2>
     <ul><li><a>'host' => getenv('DB_HOST') ?: 'mysql'</a></li></ul>
     <ul><li><a>'dbname' => getenv('DB_NAME') ?: 'gerenciamento_academico_completo'</a></li></ul>
